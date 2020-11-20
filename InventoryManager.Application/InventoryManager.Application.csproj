@@ -4,4 +4,9 @@
     <TargetFramework>netcoreapp3.1</TargetFramework>
   </PropertyGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\InventoryManager.Domain\InventoryManager.Domain.csproj" />
+    <ProjectReference Include="..\InventoryManager.Infraestructura\InventoryManager.Infraestructura.csproj" />
+  </ItemGroup>
+
 </Project>
