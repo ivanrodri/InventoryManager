@@ -1,2 +1,2 @@
-# InventoryManager
+# Inventory Manager
 Inventory manager aplication
