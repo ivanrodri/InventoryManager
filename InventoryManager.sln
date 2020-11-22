@@ -11,7 +11,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "InventoryManager.Infraestru
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "InventoryManager.API", "InventoryManager.API\InventoryManager.API.csproj", "{E31E05E3-317E-4BB3-ADC1-F3264A5F6086}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "InventoryManager.WebMVC", "InventoryManager.WebMVC\InventoryManager.WebMVC.csproj", "{36E4B501-0C15-4F18-978F-7E1ED4FA0DA6}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "InventoryManager.WebMVC", "InventoryManager.WebMVC\InventoryManager.WebMVC.csproj", "{36E4B501-0C15-4F18-978F-7E1ED4FA0DA6}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

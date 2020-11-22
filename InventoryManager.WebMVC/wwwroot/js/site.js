@@ -5,6 +5,6 @@
 
 
 
-
+window.M.AutoInit();
 
 

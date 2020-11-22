@@ -10,7 +10,19 @@ namespace InventoryManager.WebMVC.Controllers
     {
         public IActionResult Index()
         {
-            return View();
+            return View("List");
         }
+
+        public IActionResult New()
+        {
+            return View("New");
+        }
+
+         public RedirectToActionResult AddElement()
+        {
+
+            return RedirectToAction("Index");
+        }
+
     }
 }
