@@ -11,6 +11,7 @@ namespace InventoryManager.Application
         {
             CreateMap<Element, ElementDto>();
 
+
         }
     }
 }

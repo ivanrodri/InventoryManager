@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using InventoryManager.Application.Elements;
+using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 using System;
 using System.Collections.Generic;
@@ -25,19 +26,11 @@ namespace InventoryManager.API.Controllers
 
 
         [HttpGet]
-        public IEnumerable<WeatherForecast> Get()
+        public IEnumerable<ElementDto> Get()
         {
-            _logger.LogTrace("ElementController" + " " + "Get");
-           // _logger.LogInformation("This is log message.");
+   
 
-            var rng = new Random();
-            return Enumerable.Range(1, 5).Select(index => new WeatherForecast
-            {
-                Date = DateTime.Now.AddDays(index),
-                TemperatureC = rng.Next(-20, 55),
-                Summary = Summaries[rng.Next(Summaries.Length)]
-            })
-            .ToArray();
+         
 
         }
 
