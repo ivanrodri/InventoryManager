@@ -1,10 +1,8 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Text;
 
 namespace InventoryManager.Application.Element
 {
-    class ElementDto
+    public class ElementDto
     {
         public Guid Id { get; set; }
         
