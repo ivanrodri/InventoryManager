@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace InventoryManager.Application.Element
+namespace InventoryManager.Application.Elements
 {
     public class ElementDto
     {

@@ -3,28 +3,23 @@ using System.Collections.Generic;
 using System.Text;
 using InventoryManager.Domain.Elements;
 
-namespace InventoryManager.Application.Element
+namespace InventoryManager.Application.Elements
 {
     public class ElementService : IElementService
     {
-        //readonly IRepository<Product> productRepository;
-        //readonly IRepository<ProductCode> productCodeRepository;
+        //readonly IRepository<Element> elementRepository;
         //readonly IUnitOfWork unitOfWork;
 
 
-        public ElementDto Add(ElementDto element)
+        public ElementDto Add(ElementDto elementDto)
         {
-            //ProductCode productCode =
-            //    this.productCodeRepository.FindById(productDto.ProductCodeId);
 
-            //if (productCode == null)
-            //    throw new Exception("Product Code Is Not Valid");
+            Element element = Element.Create(elementDto.Name, elementDto.ExpirationDate, elementDto.EntryDate, elementDto.Type);
 
-          Element element = Element
+            //this.productRepository.Add(element);
 
-            //this.productRepository.Add(product);
-
-            return AutoMapper.Mapper.Map<Element, ElementDto>(element);
+            //return AutoMapper.Mapper.Map<Element, ElementDto>(element);
+            return elementDto;
         }
 
         public void Extract(string name)

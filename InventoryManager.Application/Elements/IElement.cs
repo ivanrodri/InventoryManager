@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace InventoryManager.Application.Element
+namespace InventoryManager.Application.Elements
 {
     public interface IElementService
     {

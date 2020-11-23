@@ -2,7 +2,7 @@
 
 namespace InventoryManager.Domain.Elements
 {
-     public class Element
+     public class Element : IAggregateRoot
     {
         public Guid Id { get; protected set; }
 
@@ -22,7 +22,7 @@ namespace InventoryManager.Domain.Elements
 
         public static Element Create(Guid id, string name, DateTime expirationDate, DateTime entryDate, string type)
         {
-            Element product = new Element()
+            Element element = new Element()
             {
                 Id = id,
                 Name = name,
@@ -32,8 +32,7 @@ namespace InventoryManager.Domain.Elements
 
             };
 
-
-            return product;
+            return element;
         }
 
 
