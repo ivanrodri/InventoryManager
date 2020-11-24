@@ -1,26 +1,18 @@
-﻿using InventoryManager.Application.Elements;
-using InventoryManager.API.Models;
+﻿using InventoryManager.API.Models;
+using InventoryManager.Application.Elements;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
+using System.Reflection;
 
 namespace InventoryManager.API.Controllers
 {
+    /// <summary>Este controlador gestiona los métodos del elemento</summary>
     [ApiController]
     [Route("[controller]")]
     public class ElementController : ControllerBase
     {
-
-
-
-        private static readonly string[] Summaries = new[]
-        {
-            "Freezing", "Bracing", "Chilly", "Cool", "Mild", "Warm", "Balmy", "Hot", "Sweltering", "Scorching"
-        };
-
         private readonly ILogger<ElementController> _logger;
         readonly IElementService _elementService;
 
@@ -31,7 +23,26 @@ namespace InventoryManager.API.Controllers
             _elementService = elementService;
         }
 
+        /// <summary>Este método permite añadir un elemento nuevo al inventario mediante la utilización de elementDto.</summary>
+        /// <param name="elementDto">el neuvo elemtento</param>
+        [HttpPost]
+        public Response<ElementDto> Post(ElementDto elementDto)
+        {
+            Response<ElementDto> response = new Response<ElementDto>();
+            try
+            {
+                response.Object = this._elementService.Add(elementDto);
+            }
+            catch (Exception ex)
+            {
+                response.Errored = true;
+                response.ErrorMessage = ex.Message;
+                _logger.LogError($"{typeof(ElementController).FullName}.{nameof(Post)}", elementDto);
+            }
+            return response;
+        }
 
+        /// <summary>Este método retorna todos loe elementos del inventario. Los elementos cancelados que se han sacado del inventario</summary>
         [HttpGet]
         public Response<IEnumerable<ElementDto>> Get()
         {
@@ -42,15 +53,13 @@ namespace InventoryManager.API.Controllers
             }
             catch (Exception ex)
             {
-                //log error
                 response.Errored = true;
                 response.ErrorMessage = ex.Message;
+                _logger.LogError($"{typeof(ElementController).FullName}.{nameof(Get)}", null);
             }
             return response;
-
-
-
         }
+
 
 
     }
