@@ -34,6 +34,12 @@ namespace InventoryManager.API
 
             services.AddAutoMapper(AppDomain.CurrentDomain.GetAssemblies());
 
+            services.AddSwaggerGen( doc =>
+            {
+                doc.SwaggerDoc("v1", new Microsoft.OpenApi.Models.OpenApiInfo { Title = "Inventory Manager", Version = "v1" });
+
+            });
+             
             services.AddControllers();
         }
 
@@ -46,6 +52,8 @@ namespace InventoryManager.API
             }
 
             app.UseHttpsRedirection();
+
+            app.UseSwagger();
 
             app.UseRouting();
 
