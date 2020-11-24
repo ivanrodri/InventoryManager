@@ -12,6 +12,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using AutoMapper;
 using InventoryManager.Application.Elements;
+using InventoryManager.Infraestructura;
 
 namespace InventoryManager.API
 {
@@ -28,6 +29,8 @@ namespace InventoryManager.API
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddTransient<IElementService, ElementService>();
+
+            services.AddScoped(typeof(IRepository<>), typeof(MemoryRepository<>));
 
             services.AddAutoMapper(AppDomain.CurrentDomain.GetAssemblies());
 
