@@ -60,7 +60,5 @@ namespace InventoryManager.API.Controllers
             return response;
         }
 
-
-
     }
 }
