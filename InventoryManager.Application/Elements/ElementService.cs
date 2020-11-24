@@ -32,7 +32,6 @@ namespace InventoryManager.Application.Elements
         public IEnumerable<ElementDto> Get()
         {
 
-
             return new List<ElementDto>();
         }
     }
