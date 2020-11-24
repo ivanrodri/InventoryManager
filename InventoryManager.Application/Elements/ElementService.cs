@@ -1,24 +1,18 @@
-﻿using System;
+﻿using InventoryManager.Domain.Elements;
+using System;
 using System.Collections.Generic;
-using System.Text;
-using InventoryManager.Domain.Elements;
 
 namespace InventoryManager.Application.Elements
 {
     public class ElementService : IElementService
     {
-        //readonly IRepository<Element> elementRepository;
-        //readonly IUnitOfWork unitOfWork;
-
 
         public ElementDto Add(ElementDto elementDto)
         {
 
-            Element element = Element.Create(elementDto.Name, elementDto.ExpirationDate, elementDto.EntryDate, elementDto.Type);
+            //Element element = Element.Create(elementDto.Name, elementDto.ExpirationDate, elementDto.EntryDate, elementDto.Type);
 
-            //this.productRepository.Add(element);
 
-            //return AutoMapper.Mapper.Map<Element, ElementDto>(element);
             return elementDto;
         }
 
@@ -27,9 +21,9 @@ namespace InventoryManager.Application.Elements
             throw new NotImplementedException();
         }
 
-        public ElementDto Get(Guid elementId)
+        public IEnumerable<ElementDto> Get()
         {
-            throw new NotImplementedException();
+            return new List<ElementDto>();
         }
     }
 }

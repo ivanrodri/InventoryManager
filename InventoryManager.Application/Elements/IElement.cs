@@ -1,16 +1,13 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
+﻿using System.Collections.Generic;
 
 namespace InventoryManager.Application.Elements
 {
     public interface IElementService
     {
 
-        ElementDto Get(Guid elementId);
+        IEnumerable<ElementDto> Get();
 
-
-        ElementDto Add(ElementDto element);
+        ElementDto Add(ElementDto elementDto);
 
         void Extract(string name);
     }
