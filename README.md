@@ -12,6 +12,7 @@ https://localhost:5001/swagger/v1/swagger.json
 ruta de la UI de Swagger
 https://localhost:5001/swagger/index.html
 
-Dto:
+Dto: Los dtos los utilizamos para la comunicación de datos entre la Api y la capa de Aplicación.
+
 
 

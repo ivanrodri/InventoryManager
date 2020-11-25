@@ -2,6 +2,7 @@
 
 namespace InventoryManager.Application.Elements
 {
+    /// <summary>Esta clase permite la comunicaión de los datos del Elemento.</summary>
     public class ElementDto
     {
         public Guid Id { get; set; }

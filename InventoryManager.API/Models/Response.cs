@@ -1,10 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
-
-namespace InventoryManager.API.Models
+﻿namespace InventoryManager.API.Models
 {
+    /// <summary>Esta clase permite incorporar a la respuesta de la Api los datos de los errores.</summary>
     public class Response
     {
         public bool Errored { get; set; }
