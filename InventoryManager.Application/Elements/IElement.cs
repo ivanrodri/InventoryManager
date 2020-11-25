@@ -2,6 +2,7 @@
 
 namespace InventoryManager.Application.Elements
 {
+    /// <summary>interface de la del servicio de elemento.</summary>
     public interface IElementService
     {
 
