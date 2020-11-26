@@ -18,6 +18,9 @@ namespace InventoryManager.WebMVC.Controllers
         public RedirectToActionResult AddElement([FromForm] ElementDto element)
         {
 
+
+
+
             return RedirectToAction(actionName: "Index");
         }
 
