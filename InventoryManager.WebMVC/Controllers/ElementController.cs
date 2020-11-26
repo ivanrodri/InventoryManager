@@ -1,8 +1,5 @@
-﻿using Microsoft.AspNetCore.Mvc;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
+﻿using InventoryManager.Application.Elements;
+using Microsoft.AspNetCore.Mvc;
 
 namespace InventoryManager.WebMVC.Controllers
 {
@@ -18,11 +15,12 @@ namespace InventoryManager.WebMVC.Controllers
             return View("New");
         }
 
-         public RedirectToActionResult AddElement()
+        public RedirectToActionResult AddElement([FromForm] ElementDto element)
         {
 
-            return RedirectToAction("Index");
+            return RedirectToAction(actionName: "Index");
         }
+
 
     }
 }

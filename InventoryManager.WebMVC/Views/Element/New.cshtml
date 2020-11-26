@@ -7,41 +7,41 @@
 <div class="card">
     <div class="row">
         <h1>Elemento</h1>
-        <form asp-action="AddElement" method="post" class="col s12">
-            <div class="row">
-                <div class="input-field col s12">
-                    <input placeholder="Placeholder" id="name" type="text" class="validate">
-                    <label for="name">Nombre</label>
+            <form asp-action="AddElement" class="col s12">
+                <div class="row">
+                    <div class="input-field col s12">
+                        <input placeholder="Placeholder" id="name" type="text" class="validate">
+                        <label for="name">Nombre</label>
+                    </div>
                 </div>
-            </div>
 
-            <div class="row">
-                <div class="input-field col s6">
-                    <input placeholder="Placeholder" id="entryDate" type="text" class="datepicker">
-                    <label for="entryDate">Fecha de entrada</label>
+                <div class="row">
+                    <div class="input-field col s6">
+                        <input placeholder="Placeholder" id="entryDate" type="text" class="datepicker">
+                        <label for="entryDate">Fecha de entrada</label>
+                    </div>
+                    <div class="input-field col s6">
+                        <input placeholder="Placeholder" id="expirationDate" type="text" class="datepicker">
+                        <label for="expirationDate">Fecha de caducidad</label>
+                    </div>
                 </div>
-                <div class="input-field col s6">
-                    <input placeholder="Placeholder" id="expirationDate" type="text" class="datepicker">
-                    <label for="expirationDate">Fecha de caducidad</label>
+
+                <div class="row">
+                    <div class="input-field col s6">
+                        <input placeholder="Placeholder" id="type" type="text" class="validate">
+                        <label for="type">Tipo</label>
+                    </div>
                 </div>
-            </div>
 
-            <div class="row">
-                <div class="input-field col s6">
-                    <input placeholder="Placeholder" id="type" type="text" class="validate">
-                    <label for="type">Tipo</label>
+                <div class="card-action">
+
+                    <button class="btn waves-effect waves-light" type="submit" name="save">
+                        Añadir
+                        <i class="material-icons right">save</i>
+                    </button>
                 </div>
-            </div>
 
-            <div class="card-action">
-
-                <button class="btn waves-effect waves-light" type="submit" name="action">
-                    Añadir
-                    <i class="material-icons right">save</i>
-                </button>
-            </div>
-
-        </form>
+            </form>
     </div>
 
 
