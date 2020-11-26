@@ -1,10 +1,17 @@
 using NUnit.Framework;
 using InventoryManager.Application.Elements;
+using InventoryManager.Infraestructura;
+using InventoryManager.Domain.Elements;
+using System;
+using Moq;
+
 
 namespace InventoryManager.Application.Test
 {
     public class ElementServiceTest
     {
+       
+
         [SetUp]
         public void Setup()
         {
@@ -22,14 +29,23 @@ namespace InventoryManager.Application.Test
         [Test]
         public void ElementServiceAdd()
         {
-            // Arrange
-            var element = ElementService.Contact.CreateContact(-1, "Stephen", "Walther", "555-5555", "steve@somewhere.com");
+            DateTime now = DateTime.Now;
+            var elementDto = new ElementDto();
+            elementDto.Id = Guid.NewGuid();
+            elementDto.Name = "Elemento 1";
+            elementDto.ExpirationDate = now;
+            elementDto.EntryDate = now;
+            elementDto.Type = "Tipo A";
+          
+ 
+            Mock<IRepository<Element>> elementRepository = new Mock<IRepository<Element>>();
 
-            // Act
-            var result = _service.CreateContact(contact);
+            var elementService = new ElementService(elementRepository.Object);
 
-            // Assert
-            Assert.IsTrue(result);
+            var result = elementService.Add(elementDto);
+
+        
+            Assert.IsNotNull(result);
         }
 
 
