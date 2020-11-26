@@ -4,13 +4,6 @@
     <TargetFramework>netcoreapp3.1</TargetFramework>
   </PropertyGroup>
 
-  <ItemGroup>
-    <None Remove="Views\Element\Indexcshtml" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <Content Include="Views\Element\Indexcshtml" />
-  </ItemGroup>
 
   <ItemGroup>
     <PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" Version="3.1.4" />

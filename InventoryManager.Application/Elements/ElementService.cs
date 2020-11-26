@@ -3,6 +3,8 @@ using InventoryManager.Infraestructura;
 using System;
 using System.Collections.Generic;
 
+
+
 namespace InventoryManager.Application.Elements
 {
     /// <summary>Clase del Servico del elemento.</summary>
@@ -37,8 +39,11 @@ namespace InventoryManager.Application.Elements
         /// <summary>Este método obtiene todos los elementos del inventario.</summary>
         public IEnumerable<ElementDto> Get()
         {
+            //new ElementSpec( Guid.NewGuid())
 
-            return new List<ElementDto>();
+            List<ElementDto> elementsDto = this.elementRepository.Find(new ElementSpec(Guid.NewGuid());
+
+            return elementsDto;
         }
     }
 }

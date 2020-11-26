@@ -22,20 +22,17 @@ namespace InventoryManager.WebMVC.Controllers
 
         public IActionResult List()
         {
-            List<ElementDto> ElementsDto = new List<ElementDto>();
 
+            IEnumerable<ElementDto> elementsDto;
             try
             {
-                _elementService.Get();
- 
+                elementsDto = _elementService.Get();
             }
             catch (Exception ex)
             {
-
                 return RedirectToAction(actionName: "Index");
-
             }
-            return View(ElementsDto);
+            return View(elementsDto);
         }
          
         public IActionResult New()
@@ -55,7 +52,7 @@ namespace InventoryManager.WebMVC.Controllers
                 return RedirectToAction(actionName: "New");
             }         
 
-            return RedirectToAction(actionName: "Index");
+            return RedirectToAction("List", "Element");
         }
 
 
