@@ -1,4 +1,8 @@
-﻿@{
+﻿@using InventoryManager.Application.Elements
+
+
+
+@{
     ViewData["Title"] = "Elementos";
 }
 
@@ -21,6 +25,15 @@
 
             <tbody>
                 <tr>
+
+                    @foreach (var element in Model)
+                    {
+                        <li>
+
+                            put the rest of your code
+                        </li>
+                    }
+
                     <td>8b308879-5fac-41f7-9f36-2c67059c1c40</td>
                     <td>Element test</td>
                     <td>01/01/2019</td>

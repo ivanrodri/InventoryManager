@@ -2,7 +2,6 @@
 using AutoMapper;
 using InventoryManager.Domain.Elements;
 using InventoryManager.Application.Elements;
-using InventoryManager.WebMVC.Models;
 
 namespace InventoryManager.WebMVC
 {
@@ -14,9 +13,6 @@ namespace InventoryManager.WebMVC
             CreateMap<Element, ElementDto>();
             CreateMap<ElementDto, Element>();
 
-
-            CreateMap<ElementViewModel, ElementDto>();
-            CreateMap<ElementDto, ElementViewModel>();
 
         }
     }
