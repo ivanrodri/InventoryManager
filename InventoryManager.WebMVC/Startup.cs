@@ -1,3 +1,5 @@
+using InventoryManager.Application.Elements;
+using InventoryManager.Infraestructura;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.HttpsPolicy;
@@ -24,6 +26,11 @@ namespace InventoryManager.WebMVC
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddControllersWithViews();
+
+            services.AddTransient<IElementService, ElementService>();
+
+            services.AddScoped(typeof(IRepository<>), typeof(MemoryRepository<>));
+
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
