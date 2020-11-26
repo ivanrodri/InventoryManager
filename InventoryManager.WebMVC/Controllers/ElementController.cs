@@ -6,6 +6,7 @@ namespace InventoryManager.WebMVC.Controllers
     public class ElementController : Controller
     {
         readonly IElementService _elementService;
+     
 
         public ElementController(IElementService elementService)
         {
@@ -24,7 +25,8 @@ namespace InventoryManager.WebMVC.Controllers
 
         public RedirectToActionResult AddElement([FromForm] ElementDto elementDto)
         {
-
+            
+           
             _elementService.Add(elementDto);
 
 
