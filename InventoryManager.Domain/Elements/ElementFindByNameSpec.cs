@@ -3,23 +3,24 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Linq.Expressions;
+using InventoryManager.Domain.Specification;
 
 namespace InventoryManager.Domain.Elements
 {
-    public class ElementSpec : SpecificationBase<Element>
+    public class ElementFindByNameSpec : SpecificationBase<Element>
     {
-        readonly Guid elementId;
+        readonly string name;
 
-        public ElementSpec(Guid elementId)
+        public ElementFindByNameSpec(string name)
         {
-            this.elementId = elementId;
+            this.name = name;
         }
 
         public override Expression<Func<Element, bool>> SpecExpression
         {
             get
             {
-                return element => element.Id != this.elementId;
+                return element => element.Name != this.name;
             }
         }
     }

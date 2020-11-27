@@ -2,8 +2,7 @@
 using InventoryManager.Infraestructura;
 using System;
 using System.Collections.Generic;
-
-
+using InventoryManager.Domain.Specification;
 
 namespace InventoryManager.Application.Elements
 {
@@ -41,9 +40,11 @@ namespace InventoryManager.Application.Elements
         {
             //new ElementSpec( Guid.NewGuid())
 
-            List<ElementDto> elementsDto = this.elementRepository.Find(new ElementSpec(Guid.NewGuid());
+            IEnumerable<Element> elements = this.elementRepository.Find(new ElementFindByNameSpec(""));
+            //IEnumerable<Purchase> customerPurchases =
+            //       this.purchaseRepository.Find(new CustomerPurchasesSpec(customer.Id));
 
-            return elementsDto;
+            return null;
         }
     }
 }

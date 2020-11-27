@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 
-namespace InventoryManager.Domain.Elements.Specification
+namespace InventoryManager.Domain.Specification
 {
     public static class IExtensions
     {

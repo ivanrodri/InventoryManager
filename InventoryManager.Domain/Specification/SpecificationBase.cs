@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Linq.Expressions;
 
-namespace InventoryManager.Domain.Elements
+namespace InventoryManager.Domain.Specification
 {
     public abstract class SpecificationBase<T> : ISpecification<T>
     {

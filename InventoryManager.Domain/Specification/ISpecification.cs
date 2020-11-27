@@ -4,8 +4,8 @@ using System.Linq;
 using System.Linq.Expressions;
 using System.Text;
 
-namespace InventoryManager.Domain.Elements
-{
+namespace InventoryManager.Domain.Specification 
+{ 
     public interface ISpecification<T>
     {
         Expression<Func<T, bool>> SpecExpression { get; }

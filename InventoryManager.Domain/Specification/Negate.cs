@@ -4,7 +4,7 @@ using System.Linq;
 using System.Linq.Expressions;
 using System.Text;
 
-namespace InventoryManager.Domain.Elements
+namespace InventoryManager.Domain.Specification
 {
     public class Negated<T> : SpecificationBase<T>
     {
