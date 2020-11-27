@@ -1,4 +1,5 @@
 ﻿using InventoryManager.Domain;
+using InventoryManager.Domain.Specification;
 using System;
 using System.Collections.Generic;
 using System.Linq;

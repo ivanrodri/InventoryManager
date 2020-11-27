@@ -10,6 +10,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using AutoMapper;
 
 namespace InventoryManager.WebMVC
 {
@@ -30,6 +31,8 @@ namespace InventoryManager.WebMVC
             services.AddTransient<IElementService, ElementService>();
 
             services.AddScoped(typeof(IRepository<>), typeof(MemoryRepository<>));
+
+            services.AddAutoMapper(AppDomain.CurrentDomain.GetAssemblies());
 
         }
 

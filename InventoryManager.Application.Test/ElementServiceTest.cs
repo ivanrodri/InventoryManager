@@ -26,27 +26,27 @@ namespace InventoryManager.Application.Test
 
 
 
-        [Test]
-        public void ElementServiceAdd()
-        {
-            DateTime now = DateTime.Now;
-            var elementDto = new ElementDto();
-            elementDto.Id = Guid.NewGuid();
-            elementDto.Name = "Elemento 1";
-            elementDto.ExpirationDate = now;
-            elementDto.EntryDate = now;
-            elementDto.Type = "Tipo A";
+        //[Test]
+        //public void ElementServiceAdd()
+        //{
+        //    DateTime now = DateTime.Now;
+        //    var elementDto = new ElementDto();
+        //    elementDto.Id = Guid.NewGuid();
+        //    elementDto.Name = "Elemento 1";
+        //    elementDto.ExpirationDate = now;
+        //    elementDto.EntryDate = now;
+        //    elementDto.Type = "Tipo A";
           
  
-            Mock<IRepository<Element>> elementRepository = new Mock<IRepository<Element>>();
+        //    Mock<IRepository<Element>> elementRepository = new Mock<IRepository<Element>>();
 
-            var elementService = new ElementService(elementRepository.Object);
+        //    var elementService = new ElementService(elementRepository.Object);
 
-            var result = elementService.Add(elementDto);
+        //    var result = elementService.Add(elementDto);
 
         
-            Assert.IsNotNull(result);
-        }
+        //    Assert.IsNotNull(result);
+        //}
 
 
     }

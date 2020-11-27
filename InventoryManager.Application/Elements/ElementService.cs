@@ -3,6 +3,7 @@ using InventoryManager.Infraestructura;
 using System;
 using System.Collections.Generic;
 using InventoryManager.Domain.Specification;
+using AutoMapper;
 
 namespace InventoryManager.Application.Elements
 {
@@ -10,11 +11,14 @@ namespace InventoryManager.Application.Elements
     public class ElementService : IElementService
     {
         readonly IRepository<Element> elementRepository;
+        readonly IMapper _mapper;
 
-
-        public ElementService(IRepository<Element> elementRepository)
+        public ElementService(IRepository<Element> elementRepository,
+                                IMapper mapper)
         {
             this.elementRepository = elementRepository;
+            _mapper = mapper;
+
         }
 
         /// <summary>Este método permite añadir un elemento nuevo al inventario mediante la utilización de elementDto.</summary>
@@ -38,13 +42,10 @@ namespace InventoryManager.Application.Elements
         /// <summary>Este método obtiene todos los elementos del inventario.</summary>
         public IEnumerable<ElementDto> Get()
         {
-            //new ElementSpec( Guid.NewGuid())
 
             IEnumerable<Element> elements = this.elementRepository.Find(new ElementFindByNameSpec(""));
-            //IEnumerable<Purchase> customerPurchases =
-            //       this.purchaseRepository.Find(new CustomerPurchasesSpec(customer.Id));
-
-            return null;
+            var elementsDto = _mapper.Map<IEnumerable<ElementDto>>(elements);
+            return elementsDto;
         }
     }
 }

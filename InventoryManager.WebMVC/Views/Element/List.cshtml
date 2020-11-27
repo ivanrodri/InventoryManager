@@ -1,5 +1,4 @@
-﻿@using InventoryManager.Application.Elements
-
+﻿@model IEnumerable<InventoryManager.Application.Elements.ElementDto>
 
 
 @{
@@ -24,28 +23,31 @@
             </thead>
 
             <tbody>
-                <tr>
-
+ 
                     @foreach (var element in Model)
                     {
-                        <td>
-                            element.Id
-                        </td>
-                        <td>
-                            element.name
-                        </td>
-                        <td>
-                            element.EntryDate
-                        </td>
-                        <td>
-                            element.ExpirationDate
-                        </td>
-                        <td>
-                            element.Type
-                        </td>
+                        <tr>
+                            <td>
+                                @Html.DisplayFor(modelItem => element.Id)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => element.Name)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => element.EntryDate)
+
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => element.ExpirationDate)
+
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => element.Type)
+
+                            </td>
+                         </tr>
                     }
 
-                </tr>
             </tbody>
         </table>
 
