@@ -10,5 +10,7 @@ namespace InventoryManager.Application.Elements
         ElementDto Add(ElementDto elementDto);
 
         void Extract(string name);
+
+        ElementDto Update(ElementDto elementDto);
     }
 }

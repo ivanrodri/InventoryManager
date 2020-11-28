@@ -47,5 +47,19 @@ namespace InventoryManager.Application.Elements
             var elementsDto = _mapper.Map<IEnumerable<ElementDto>>(elements);
             return elementsDto;
         }
+
+        /// <summary>Este método permite modificar un elemento existente en el inventario./summary>
+        /// <param name="elementDto">el nuevo elemtento</param>
+        public ElementDto Update(ElementDto elementDto)
+        {
+            Element element = Element.Create(elementDto.Name, elementDto.ExpirationDate, elementDto.EntryDate, elementDto.Type);
+
+            this.elementRepository.Add(element);
+
+            return elementDto;
+        }
+
+
+
     }
 }

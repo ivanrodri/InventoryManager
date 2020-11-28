@@ -60,5 +60,28 @@ namespace InventoryManager.API.Controllers
             return response;
         }
 
+
+        /// <summary>Este método permite modificar un elemento existente dell inventario.</summary>
+        /// <param name="elementDto">el nuevo elemtento</param>
+        [HttpPut]
+        public Response<ElementDto> Put(ElementDto elementDto)
+        {
+            Response<ElementDto> response = new Response<ElementDto>();
+            try
+            {
+                response.Object = this._elementService.Update(elementDto);
+            }
+            catch (Exception ex)
+            {
+                response.Errored = true;
+                response.ErrorMessage = ex.Message;
+                _logger.LogError($"{typeof(ElementController).FullName}.{nameof(Post)}", elementDto);
+            }
+            return response;
+        }
+
+
+
+
     }
 }
