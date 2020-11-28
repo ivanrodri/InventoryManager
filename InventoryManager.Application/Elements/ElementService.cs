@@ -54,12 +54,12 @@ namespace InventoryManager.Application.Elements
         {
 
             //exist on inventario
-
+            
 
 
             Element element = Element.Create(elementDto.Name, elementDto.ExpirationDate, elementDto.EntryDate, elementDto.Type);
 
-            this.elementRepository.Add(element);
+            this.elementRepository.(element);
 
             return elementDto;
         }

@@ -48,5 +48,16 @@ namespace InventoryManager.Infraestructura
             entities.Remove(entity);
         }
 
+        /// <summary>Este método permite actualizar un elemento del inventario.</summary>
+        /// <param name="entity">la entidad</param>
+        public void Update(TEntity entity)
+        {
+            if (entity != null)
+            {
+                TEntity oldEntity = this.FindById(entity.Id);
+                entities.Remove(oldEntity);
+                entities.Add(entity);
+            }
+        }
     }
 }
