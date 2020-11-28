@@ -13,6 +13,8 @@ namespace InventoryManager.Domain.Elements
 
         public DateTime EntryDate { get; protected set; }
 
+        public DateTime? DeleteDate { get; protected set; }
+
         public string Type { get; protected set; }
 
         /// <summary>Este método permite la creación de un nuevo elemento.</summary>
@@ -29,7 +31,8 @@ namespace InventoryManager.Domain.Elements
                 ExpirationDate = expirationDate,
                 EntryDate = DateTime.Now,
                 Type = type,
-            };
+                 DeleteDate = null,
+             };
 
             return element;
         }

@@ -43,7 +43,7 @@ namespace InventoryManager.Application.Elements
         public IEnumerable<ElementDto> Get()
         {
 
-            IEnumerable<Element> elements = this.elementRepository.Find(new ElementFindByNameSpec(""));
+            IEnumerable<Element> elements = this.elementRepository.Find(new ElementByDeleteDateSpec(null));
             var elementsDto = _mapper.Map<IEnumerable<ElementDto>>(elements);
             return elementsDto;
         }

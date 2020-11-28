@@ -4,20 +4,20 @@ using System.Linq.Expressions;
 
 namespace InventoryManager.Domain.Elements
 {
-    public class ElementFindByNameSpec : SpecificationBase<Element>
+    public class ElementByDeleteDateSpec : SpecificationBase<Element>
     {
-        readonly string name;
+        readonly DateTime? deleteDate;
 
-        public ElementFindByNameSpec(string name)
+        public ElementByDeleteDateSpec(DateTime? deleteDate)
         {
-            this.name = name;
+            this.deleteDate = deleteDate;
         }
 
         public override Expression<Func<Element, bool>> SpecExpression
         {
             get
             {
-                return element => element.Name != this.name;
+                return element => element.DeleteDate == this.deleteDate;
             }
         }
     }
