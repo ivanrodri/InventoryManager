@@ -13,6 +13,8 @@ namespace InventoryManager.Application.Elements
 
         public DateTime EntryDate { get; set; }
 
+        public DateTime DeleteDate { get; set; }
+
         public string Type { get; set; }
 
     }
