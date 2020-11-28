@@ -68,8 +68,8 @@ namespace InventoryManager.Application.Elements
 
         public ElementDto FindById(Guid id) {
 
-            Element element = this.elementRepository.FindById(new ElementFindByIdSpec(id));
-            var elementsDto = _mapper.Map<ElementDto>(element);
+            Element element = this.elementRepository.FindById(id);
+            var elementDto = _mapper.Map<ElementDto>(element);
             return elementDto;
 
         }
