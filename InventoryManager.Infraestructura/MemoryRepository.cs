@@ -47,5 +47,6 @@ namespace InventoryManager.Infraestructura
         {
             entities.Remove(entity);
         }
+
     }
 }

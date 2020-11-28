@@ -52,6 +52,11 @@ namespace InventoryManager.Application.Elements
         /// <param name="elementDto">el nuevo elemtento</param>
         public ElementDto Update(ElementDto elementDto)
         {
+
+            //exist on inventario
+
+
+
             Element element = Element.Create(elementDto.Name, elementDto.ExpirationDate, elementDto.EntryDate, elementDto.Type);
 
             this.elementRepository.Add(element);
@@ -59,6 +64,15 @@ namespace InventoryManager.Application.Elements
             return elementDto;
         }
 
+
+
+        public ElementDto FindById(Guid id) {
+
+            Element element = this.elementRepository.FindById(new ElementFindByIdSpec(id));
+            var elementsDto = _mapper.Map<ElementDto>(element);
+            return elementDto;
+
+        }
 
 
     }

@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 
 namespace InventoryManager.Application.Elements
 {
@@ -12,5 +13,8 @@ namespace InventoryManager.Application.Elements
         void Extract(string name);
 
         ElementDto Update(ElementDto elementDto);
+
+        ElementDto FindById(Guid id);
+
     }
 }
