@@ -4,13 +4,12 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 using System;
 using System.Collections.Generic;
-using System.Reflection;
 
 namespace InventoryManager.API.Controllers
 {
     /// <summary>Este controlador gestiona los métodos del elemento</summary>
     [ApiController]
-    [Route("[controller]")]
+    //[Route("[controller]")]
     public class ElementController : ControllerBase
     {
         private readonly ILogger<ElementController> _logger;
@@ -25,6 +24,7 @@ namespace InventoryManager.API.Controllers
 
         /// <summary>Este método permite añadir un elemento nuevo al inventario mediante la utilización de elementDto.</summary>
         /// <param name="elementDto">el neuvo elemtento</param>
+        [Route("api/[controller]")]
         [HttpPost]
         public Response<ElementDto> Post(ElementDto elementDto)
         {
@@ -43,6 +43,7 @@ namespace InventoryManager.API.Controllers
         }
 
         /// <summary>Este método retorna todos loe elementos del inventario. Los elementos cancelados que se han sacado del inventario</summary>
+        [Route("api/[controller]")]
         [HttpGet]
         public Response<IEnumerable<ElementDto>> Get()
         {
@@ -63,6 +64,7 @@ namespace InventoryManager.API.Controllers
 
         /// <summary>Este método permite modificar un elemento existente dell inventario.</summary>
         /// <param name="elementDto">el nuevo elemtento</param>
+        [Route("api/[controller]")]
         [HttpPut]
         public Response<ElementDto> Put(ElementDto elementDto)
         {
@@ -83,8 +85,9 @@ namespace InventoryManager.API.Controllers
 
         /// <summary>Este método retorna el elemento con id correspondiente al parametro</summary>
         /// /// <param name="elementDto">el nuevo elemtento</param>
+        [Route("api/[controller]/GetById/{id}")]
         [HttpGet]
-        public Response<ElementDto> Get(Guid id)
+        public Response<ElementDto> GetById(Guid id)
 
         {
             Response<ElementDto> response = new Response<ElementDto>();
