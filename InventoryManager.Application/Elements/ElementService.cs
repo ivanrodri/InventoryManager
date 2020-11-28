@@ -64,8 +64,8 @@ namespace InventoryManager.Application.Elements
             return elementDto;
         }
 
-
-
+        /// <summary>Este método permite modificar un elemento existente en el inventario./summary>
+        /// <param name="elementDto">el nuevo elemtento</param>
         public ElementDto FindById(Guid id) {
 
             Element element = this.elementRepository.FindById(id);
@@ -73,7 +73,6 @@ namespace InventoryManager.Application.Elements
             return elementDto;
 
         }
-
 
     }
 }

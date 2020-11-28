@@ -81,6 +81,26 @@ namespace InventoryManager.API.Controllers
         }
 
 
+        /// <summary>Este método retorna el elemento con id correspondiente al parametro</summary>
+        /// /// <param name="elementDto">el nuevo elemtento</param>
+        [HttpGet]
+        public Response<ElementDto> Get(Guid id)
+
+        {
+            Response<ElementDto> response = new Response<ElementDto>();
+            try
+            {
+                response.Object = _elementService.FindById(id);
+            }
+            catch (Exception ex)
+            {
+                response.Errored = true;
+                response.ErrorMessage = ex.Message;
+                _logger.LogError($"{typeof(ElementController).FullName}.{nameof(Get)}", null);
+            }
+            return response;
+        }
+
 
 
     }
