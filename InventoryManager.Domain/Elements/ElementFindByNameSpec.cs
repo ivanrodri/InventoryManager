@@ -17,7 +17,7 @@ namespace InventoryManager.Domain.Elements
         {
             get
             {
-                return element => element.Name != this.name;
+                return element => element.Name == this.name;
             }
         }
     }

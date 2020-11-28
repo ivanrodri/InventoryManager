@@ -26,23 +26,23 @@ namespace InventoryManager.Application.Elements
         public ElementDto Add(ElementDto elementDto)
         {
             Element element = Element.Create(elementDto.Name, elementDto.ExpirationDate, elementDto.EntryDate, elementDto.Type);
-
             this.elementRepository.Add(element);
-
             return elementDto;
         }
 
         /// <summary>Este método permite la eliminación logica de un elemento mediante el nombre del elemento.</summary>
         /// <param name="name">el nombre del elemtento</param>
-        public void Extract(string name)
+        public ElementDto Extract(string name)
         {
-            throw new NotImplementedException();
+            Element element = this.elementRepository.FindOne(new ElementFindByNameSpec(name));                                  
+            this.elementRepository.Update(element);
+            var elementDto = _mapper.Map<ElementDto>(element);
+            return elementDto;
         }
 
         /// <summary>Este método obtiene todos los elementos del inventario.</summary>
         public IEnumerable<ElementDto> Get()
         {
-
             IEnumerable<Element> elements = this.elementRepository.Find(new ElementByDeleteDateSpec(null));
             var elementsDto = _mapper.Map<IEnumerable<ElementDto>>(elements);
             return elementsDto;
@@ -52,15 +52,8 @@ namespace InventoryManager.Application.Elements
         /// <param name="elementDto">el nuevo elemtento</param>
         public ElementDto Update(ElementDto elementDto)
         {
-
-            //exist on inventario
-            
-
-
-            Element element = Element.Create(elementDto.Name, elementDto.ExpirationDate, elementDto.EntryDate, elementDto.Type);
-
-            this.elementRepository.(element);
-
+            var element = _mapper.Map<Element>(elementDto);
+            this.elementRepository.Update(element);
             return elementDto;
         }
 

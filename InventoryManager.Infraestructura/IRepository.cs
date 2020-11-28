@@ -18,5 +18,7 @@ namespace InventoryManager.Infraestructura
         void Add(TEntity entity);
 
         void Remove(TEntity entity);
+
+        void Update(TEntity entity);
     }
 }

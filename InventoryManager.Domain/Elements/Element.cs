@@ -1,4 +1,5 @@
 ﻿using System;
+using InventoryManager.Domain.Exceptions;
 
 namespace InventoryManager.Domain.Elements
 {
@@ -24,17 +25,29 @@ namespace InventoryManager.Domain.Elements
         /// <param name="type">el nuevo elemtento</param>
         public static Element Create(string name, DateTime expirationDate, DateTime entryDate, string type )
         {
-             Element element = new Element()
+            if (string.IsNullOrEmpty(name))
+            {
+                throw new BussinessException("Name is required");
+            }
+            if (string.IsNullOrEmpty(type))
+            {
+                throw new BussinessException("Type required");
+            }
+
+            Element element = new Element()
             {
                 Id = Guid.NewGuid(),
                 Name = name,
                 ExpirationDate = expirationDate,
                 EntryDate = DateTime.Now,
                 Type = type,
-                 DeleteDate = null,
+                DeleteDate = null,
              };
 
             return element;
         }
+
+
+
     }
 }
