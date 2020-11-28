@@ -16,10 +16,8 @@ Dto: Los dtos los utilizamos para la comunicación de datos entre la Api y la cap
 
 Interfaces : Permiten definir los un contrato en el que definir que tendran que cumplir las clases que lo implementen.
 
-
 Specification : Este patrón permite difinir las reglas de negocio de modo que podemos saber si se cumple la regla mediante una variable boolean.
  
+Test: Permiten el testeo tanto de métodso como de sevicios de forma individual.
 
-Test
-
-Moq:
+Moq: Se utiliza para poder imitar las interfacen que dan acceso a los datos.
