@@ -1,5 +1,9 @@
 # Inventory Manager
-Inventory manager aplication
+Inventory manager aplication en arquitectura DDD que permite la funcionalidad del inventario de elementos.
+
+Se compone de las diferentes capas Dominio, Aplicación y Infraestructura. También se compone de la Api y la UI en MVC.
+
+Para poder ejecutar la Api es necesario setearla como proyecto de inicio. De l amisma manera para la UI en MVC.
 
 
 AutoMapper : Utilizada para mapear clases automaticamente.
