@@ -4,13 +4,12 @@ using InventoryManager.Infraestructura;
 using InventoryManager.Domain.Elements;
 using System;
 using Moq;
-
+using AutoMapper;
 
 namespace InventoryManager.Application.Test
 {
     public class ElementServiceTest
-    {
-       
+    {       
 
         [SetUp]
         public void Setup()
@@ -18,35 +17,27 @@ namespace InventoryManager.Application.Test
 
         }
 
+        private static IMapper _mapper;
+
         [Test]
-        public void Test1()
+        public void ElementServiceAdd()
         {
-            Assert.Pass();
+            DateTime now = DateTime.Now;
+            var elementDto = new ElementDto();
+            elementDto.Id = Guid.NewGuid();
+            elementDto.Name = "Elemento 1";
+            elementDto.ExpirationDate = now;
+            elementDto.EntryDate = now;
+            elementDto.Type = "Tipo A";
+
+            Mock<IRepository<Element>> elementRepository = new Mock<IRepository<Element>>();
+  
+            var elementService = new ElementService(elementRepository.Object, _mapper);
+
+            var result = elementService.Add(elementDto);
+
+            Assert.IsNotNull(result);
         }
-
-
-
-        //[Test]
-        //public void ElementServiceAdd()
-        //{
-        //    DateTime now = DateTime.Now;
-        //    var elementDto = new ElementDto();
-        //    elementDto.Id = Guid.NewGuid();
-        //    elementDto.Name = "Elemento 1";
-        //    elementDto.ExpirationDate = now;
-        //    elementDto.EntryDate = now;
-        //    elementDto.Type = "Tipo A";
-          
- 
-        //    Mock<IRepository<Element>> elementRepository = new Mock<IRepository<Element>>();
-
-        //    var elementService = new ElementService(elementRepository.Object);
-
-        //    var result = elementService.Add(elementDto);
-
-        
-        //    Assert.IsNotNull(result);
-        //}
 
 
     }

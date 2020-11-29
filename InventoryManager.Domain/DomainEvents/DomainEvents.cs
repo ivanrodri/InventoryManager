@@ -15,12 +15,9 @@ namespace InventoryManager.Domain.DomainEvents
 
         public static void Raise<T>(T domainEvent)
             where T : IDomainEvent
-        {
-            foreach (Delegate handler in _handlers[domainEvent.GetType()])
-            {
-                var action = (Action<T>)handler;
-                action(domainEvent);
-            }
+        {            
+           // envío del evento de dominio al distribuidor de eventos internos o externos de la aplicación.
+            
         }
     }
 }
