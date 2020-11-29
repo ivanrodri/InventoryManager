@@ -57,15 +57,17 @@ namespace InventoryManager.Domain.Elements
 
             element.state = ElementState.Deleted;
 
-            DomainEvents.DomainEvents.Raise(new ElementDeleted(element));
-            
-            
+            DomainEvents.DomainEvents.Raise(new ElementDelete(element));
+                        
             return element;
         }
 
         public static Element Expired(Element element)
         {
             element.state = ElementState.Expired;
+
+            DomainEvents.DomainEvents.Raise(new ElementExpired(element));
+
             return element;
         }
 
