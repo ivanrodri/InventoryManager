@@ -13,6 +13,7 @@ using System.Threading.Tasks;
 using AutoMapper;
 using InventoryManager.Application.Elements;
 using InventoryManager.Infraestructura;
+using InventoryManager.Domain.User;
 
 namespace InventoryManager.API
 {
@@ -28,6 +29,8 @@ namespace InventoryManager.API
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
+            services.AddScoped<IUserService, UserService>();
+
             services.AddTransient<IElementService, ElementService>();
 
             services.AddScoped(typeof(IRepository<>), typeof(MemoryRepository<>));
