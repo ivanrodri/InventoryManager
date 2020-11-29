@@ -21,3 +21,5 @@ Specification : Este patrón permite difinir las reglas de negocio de modo que po
 Test: Permiten el testeo tanto de métodso como de sevicios de forma individual.
 
 Moq: Se utiliza para poder imitar las interfacen que dan acceso a los datos.
+
+Authentication Basic : Permite securizar la Api aunque hay maneras mucho mas seguras como los tokens JWT.
