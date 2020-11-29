@@ -34,7 +34,7 @@ namespace InventoryManager.Application.Elements
         public ElementDto Delete(string name)
         {
             Element element = this.elementRepository.FindOne(new ElementFindByNameSpec(name));
-            element = Element.Delete(element);
+            element = Element.Deleted(element);
             this.elementRepository.Update(element);
             var elementDto = _mapper.Map<ElementDto>(element);
             return elementDto;
@@ -44,6 +44,7 @@ namespace InventoryManager.Application.Elements
         public IEnumerable<ElementDto> Get()
         {
             IEnumerable<Element> elements = this.elementRepository.Find(new ElementByDeleteDateSpec(null));
+            this.checkExpiracy(elements);
             var elementsDto = _mapper.Map<IEnumerable<ElementDto>>(elements);
             return elementsDto;
         }
@@ -65,5 +66,18 @@ namespace InventoryManager.Application.Elements
             var elementDto = _mapper.Map<ElementDto>(element);
             return elementDto;
         }
+
+        public void checkExpiracy(IEnumerable<Element> elements) {
+
+            DateTime now = DateTime.Now;
+            foreach (var element in elements)
+            {
+                if (element.ExpirationDate >= now) 
+                {
+                    Element.Expired(element);
+                }
+            }        
+        }
+
     }
 }
