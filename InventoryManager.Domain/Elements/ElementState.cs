@@ -2,8 +2,8 @@
 {
     public enum ElementState
     {
-        Inserted,
+        Created,
         Expired,
-        Removed,
+        Deleted,
     }
 }

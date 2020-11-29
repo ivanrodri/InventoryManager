@@ -44,12 +44,27 @@ namespace InventoryManager.Domain.Elements
                 EntryDate = DateTime.Now,
                 Type = type,
                 DeleteDate = null,
-                state = ElementState.Inserted,
+                state = ElementState.Created,
             };
 
             return element;
         }
 
+        public static Element Delete(Element element) {
+
+            DateTime now = DateTime.Now;
+            element.DeleteDate = now;
+
+            element.state = ElementState.Deleted;
+
+            return element;
+        }
+
+        public static Element Expired(Element element)
+        {
+            element.state = ElementState.Expired;
+            return element;
+        }
 
     }
 }

@@ -33,7 +33,8 @@ namespace InventoryManager.Application.Elements
         /// <param name="name">el nombre del elemtento</param>
         public ElementDto Extract(string name)
         {
-            Element element = this.elementRepository.FindOne(new ElementFindByNameSpec(name));                                  
+            Element element = this.elementRepository.FindOne(new ElementFindByNameSpec(name));
+            element = Element.Delete(element);
             this.elementRepository.Update(element);
             var elementDto = _mapper.Map<ElementDto>(element);
             return elementDto;
