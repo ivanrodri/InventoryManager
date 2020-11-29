@@ -18,6 +18,8 @@ namespace InventoryManager.Domain.Elements
 
         public string Type { get; protected set; }
 
+        public ElementState state { get; protected set; }
+
         /// <summary>Este método permite la creación de un nuevo elemento.</summary>
         /// <param name="name">el nombre del elemtento</param>
         /// <param name="expirationDate">el nuevo elemtento</param>
@@ -42,11 +44,11 @@ namespace InventoryManager.Domain.Elements
                 EntryDate = DateTime.Now,
                 Type = type,
                 DeleteDate = null,
-             };
+                state = ElementState.Inserted,
+            };
 
             return element;
         }
-
 
 
     }
