@@ -12,8 +12,10 @@ using System.Linq;
 using System.Threading.Tasks;
 using AutoMapper;
 using InventoryManager.Application.Elements;
+using InventoryManager.Application.User;
 using InventoryManager.Infraestructura;
-using InventoryManager.Domain.User;
+using Microsoft.AspNetCore.Authentication;
+using InventoryManager.API.Handler;
 
 namespace InventoryManager.API
 {
@@ -29,6 +31,8 @@ namespace InventoryManager.API
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
+            services.AddAuthentication("BasicAuthentication")
+                .AddScheme<AuthenticationSchemeOptions, BasicAuthenticationHandler>("BasicAuthentication", null);
             services.AddScoped<IUserService, UserService>();
 
             services.AddTransient<IElementService, ElementService>();
@@ -65,6 +69,7 @@ namespace InventoryManager.API
 
             app.UseRouting();
 
+            app.UseAuthentication();
             app.UseAuthorization();
 
             app.UseEndpoints(endpoints =>

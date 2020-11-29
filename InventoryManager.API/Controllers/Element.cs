@@ -1,5 +1,6 @@
 ﻿using InventoryManager.API.Models;
 using InventoryManager.Application.Elements;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 using System;
@@ -8,6 +9,7 @@ using System.Collections.Generic;
 namespace InventoryManager.API.Controllers
 {
     /// <summary>Este controlador gestiona los métodos del elemento</summary>
+    [Authorize]
     [ApiController]
     //[Route("[controller]")]
     public class ElementController : ControllerBase
@@ -43,6 +45,7 @@ namespace InventoryManager.API.Controllers
         }
 
         /// <summary>Este método retorna todos loe elementos del inventario. Los elementos cancelados que se han sacado del inventario</summary>
+        /// https://localhost:5001/api/Element
         [Route("api/[controller]")]
         [HttpGet]
         public Response<IEnumerable<ElementDto>> Get()

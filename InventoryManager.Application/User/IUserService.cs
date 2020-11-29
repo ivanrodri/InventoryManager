@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace InventoryManager.Domain.User
+namespace InventoryManager.Application.User
 {
     public interface IUserService
     {
