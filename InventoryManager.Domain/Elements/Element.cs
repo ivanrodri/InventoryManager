@@ -50,13 +50,16 @@ namespace InventoryManager.Domain.Elements
             return element;
         }
 
-        public static Element Delete(Element element) {
+        public static Element Deleted(Element element) {
 
             DateTime now = DateTime.Now;
             element.DeleteDate = now;
 
             element.state = ElementState.Deleted;
 
+            DomainEvents.DomainEvents.Raise(new ElementDeleted(element));
+            
+            
             return element;
         }
 
