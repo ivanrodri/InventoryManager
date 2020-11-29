@@ -17,8 +17,6 @@ namespace InventoryManager.WebMVC.Controllers
 
         public IActionResult Index()
         {
-            //return View();
-
             return RedirectToAction("List", "Element");
         }
 
@@ -57,12 +55,19 @@ namespace InventoryManager.WebMVC.Controllers
             return RedirectToAction("List", "Element");
         }
 
-
+        [HttpPost]
         public IActionResult DeleteElement([FromForm] string nameElement)
         {
-            System.Diagnostics.Debug.WriteLine("nameElement " + nameElement);
+            try
+            {
+                _elementService.Delete(nameElement);
 
-            return View("Delete");
+            }
+            catch (Exception ex)
+            {
+                return RedirectToAction(actionName: "Delete");
+            }
+            return RedirectToAction(actionName: "List");
         }
 
         public IActionResult Delete()
