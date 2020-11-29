@@ -10,9 +10,8 @@ namespace InventoryManager.Application.Elements
 
         ElementDto Add(ElementDto elementDto);
 
-        ElementDto Extract(string name);
+        ElementDto Delete(string name);
      
-
         ElementDto Update(ElementDto elementDto);
 
         ElementDto FindById(Guid id);

@@ -31,7 +31,7 @@ namespace InventoryManager.Application.Elements
 
         /// <summary>Este método permite la eliminación logica de un elemento mediante el nombre del elemento.</summary>
         /// <param name="name">el nombre del elemtento</param>
-        public ElementDto Extract(string name)
+        public ElementDto Delete(string name)
         {
             Element element = this.elementRepository.FindOne(new ElementFindByNameSpec(name));
             element = Element.Delete(element);

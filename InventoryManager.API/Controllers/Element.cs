@@ -63,7 +63,7 @@ namespace InventoryManager.API.Controllers
 
 
         /// <summary>Este método permite modificar un elemento existente dell inventario.</summary>
-        /// <param name="elementDto">el nuevo elemtento</param>
+        /// <param name="elementDto">el elemento modificado</param>
         [Route("api/[controller]")]
         [HttpPut]
         public Response<ElementDto> Put(ElementDto elementDto)
@@ -77,14 +77,14 @@ namespace InventoryManager.API.Controllers
             {
                 response.Errored = true;
                 response.ErrorMessage = ex.Message;
-                _logger.LogError($"{typeof(ElementController).FullName}.{nameof(Post)}", elementDto);
+                _logger.LogError($"{typeof(ElementController).FullName}.{nameof(Put)}", elementDto);
             }
             return response;
         }
 
 
         /// <summary>Este método retorna el elemento con id correspondiente al parametro</summary>
-        /// /// <param name="elementDto">el nuevo elemtento</param>
+        /// /// <param name="id">el id del elemtento</param>
         [Route("api/[controller]/GetById/{id}")]
         [HttpGet]
         public Response<ElementDto> GetById(Guid id)
@@ -99,11 +99,31 @@ namespace InventoryManager.API.Controllers
             {
                 response.Errored = true;
                 response.ErrorMessage = ex.Message;
-                _logger.LogError($"{typeof(ElementController).FullName}.{nameof(Get)}", null);
+                _logger.LogError($"{typeof(ElementController).FullName}.{nameof(GetById)}", null);
             }
             return response;
         }
 
+        /// <summary>Este método elimina logicamente un elemento mediante el correspondiente nombre</summary>
+        /// /// <param name="name">el nuevo elementp</param>
+        [Route("api/[controller]/GetById/{id}")]
+        [HttpDelete]
+        public Response<ElementDto> DeleteById(string name)
+
+        {
+            Response<ElementDto> response = new Response<ElementDto>();
+            try
+            {
+                response.Object = _elementService.Delete(name);
+            }
+            catch (Exception ex)
+            {
+                response.Errored = true;
+                response.ErrorMessage = ex.Message;
+                _logger.LogError($"{typeof(ElementController).FullName}.{nameof(DeleteById)}", null);
+            }
+            return response;
+        }
 
 
     }
