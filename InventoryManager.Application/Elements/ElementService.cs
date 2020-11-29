@@ -1,9 +1,8 @@
-﻿using InventoryManager.Domain.Elements;
+﻿using AutoMapper;
+using InventoryManager.Domain.Elements;
 using InventoryManager.Infraestructura;
 using System;
 using System.Collections.Generic;
-using InventoryManager.Domain.Specification;
-using AutoMapper;
 
 namespace InventoryManager.Application.Elements
 {
@@ -64,8 +63,6 @@ namespace InventoryManager.Application.Elements
             Element element = this.elementRepository.FindById(id);
             var elementDto = _mapper.Map<ElementDto>(element);
             return elementDto;
-
         }
-
     }
 }
